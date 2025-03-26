@@ -1,32 +1,33 @@
 package org.lukasz;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class FolderCabinet extends FileCabinet implements MultiFolder {
 
-    private List<Folder> folders;
+
+     List<Folder>folderArrayList = new ArrayList<>();
     private String name;
     private String size;
 
     public FolderCabinet() {
     }
 
+
     public FolderCabinet(String name, String size) {
-        super();
         this.name = name;
         this.size = size;
     }
 
 
-    public void addFolder(Folder folder) {
-        folders.add(folder);
-    }
+
 
 
     @Override
     public Optional<Folder> findFolderByName(String name) {
-        return folders.stream().filter(folder -> folder.getName().equals(getName())).findFirst();
+        return getFolders().stream().filter(folder -> folder.getName().equals(getName())).findFirst();
     }
 
     @Override
@@ -36,12 +37,12 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
 
     @Override
     public int count() {
-        return folders.size();
+        return folderArrayList.size();
     }
 
     @Override
     public List<Folder> getFolders() {
-        return folders;
+        return folderArrayList;
     }
 
     @Override
@@ -52,5 +53,28 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
     @Override
     public String getSize() {
         return size;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FolderCabinet that = (FolderCabinet) o;
+        return Objects.equals(name, that.name) && Objects.equals(size, that.size);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, size);
+    }
+
+    @Override
+    public String toString() {
+        return "FolderCabinet{" +
+               "name='" + name + '\'' +
+               ", size='" + size + '\'' +
+               '}';
     }
 }
