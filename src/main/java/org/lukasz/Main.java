@@ -9,15 +9,19 @@ public class Main {
         Folder folder = new FolderCabinet("aaa","bbb");
         folderCabinet.folderArrayList.add(folder);
 
-        System.out.println(folderCabinet.count());
+
 
         Optional<Folder> aaa = folderCabinet.findFolderByName("aaa");
-        System.out.println(aaa);
+
 
 
 
         MultiFolder multiFolder = new FolderCabinet();
-        multiFolder.getFolders().add(folder);
+        List<Folder> folders = multiFolder.getFolders();
+       folders.add(folder);
+       FolderCabinet folderCabinet1 = new FolderCabinet(folders);
+
+        Optional<Folder> aaa1 = folderCabinet1.findFolderByName("aaa");
 
 
 
@@ -26,7 +30,8 @@ public class Main {
 
 
 
-        System.out.println(multiFolder.getFolders().size());
+
+       // System.out.println(multiFolder.getFolders().size());
 
 
 

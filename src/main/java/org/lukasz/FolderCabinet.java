@@ -21,13 +21,13 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
         this.size = size;
     }
 
-
-
-
+    public FolderCabinet(List<Folder> folderArrayList) {
+        this.folderArrayList = folderArrayList;
+    }
 
     @Override
     public Optional<Folder> findFolderByName(String name) {
-        return getFolders().stream().filter(folder -> folder.getName().equals(getName())).findFirst();
+        return folderArrayList.stream().filter(folder -> folder.getName().equals(getName())).findFirst();
     }
 
     @Override
