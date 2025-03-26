@@ -8,7 +8,7 @@ import java.util.Optional;
 public class FolderCabinet extends FileCabinet implements MultiFolder {
 
 
-     List<Folder>folderArrayList = new ArrayList<>();
+    List<Folder> folderArrayList = new ArrayList<>();
     private String name;
     private String size;
 
@@ -21,18 +21,15 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
         this.size = size;
     }
 
-    public FolderCabinet(List<Folder> folderArrayList) {
-        this.folderArrayList = folderArrayList;
-    }
 
     @Override
     public Optional<Folder> findFolderByName(String name) {
-        return folderArrayList.stream().filter(folder -> folder.getName().equals(getName())).findFirst();
+        return folderArrayList.stream().filter(folder -> folder.getName().equals(name)).findFirst();
     }
 
     @Override
     public List<Folder> findFoldersBySize(String size) {
-        return super.findFoldersBySize(getSize()).stream().filter(folder -> folder.getSize().equals(size)).toList();
+        return folderArrayList.stream().filter(folder -> folder.getSize().equals(size)).toList();
     }
 
     @Override
@@ -56,7 +53,6 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
     }
 
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,9 +68,6 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
 
     @Override
     public String toString() {
-        return "FolderCabinet{" +
-               "name='" + name + '\'' +
-               ", size='" + size + '\'' +
-               '}';
+        return "FolderCabinet{" + "name='" + name + '\'' + ", size='" + size + '\'' + '}';
     }
 }

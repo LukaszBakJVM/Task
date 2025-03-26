@@ -1,14 +1,11 @@
 package org.lukasz;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
 public class FileCabinet implements Cabinet {
     private List<Folder> folders;
-
-
 
 
     @Override
@@ -30,9 +27,6 @@ public class FileCabinet implements Cabinet {
         return folders;
     }
 
-    public void setFoldersList(List<Folder> folders) {
-        this.folders = folders;
-    }
 
     @Override
     public boolean equals(Object o) {
