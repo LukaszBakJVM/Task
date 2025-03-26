@@ -9,7 +9,7 @@ import java.util.Optional;
 public class FolderCabinetTest {
 
     @Test
-  public   void test1(){
+  public   void testFolders(){
         FolderCabinet folderCabinet = new FolderCabinet();
         Folder folder = new FolderCabinet("one", "SMALL");
         Folder folder1 = new FolderCabinet("two", "SMALL");
