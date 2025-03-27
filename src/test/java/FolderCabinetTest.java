@@ -9,21 +9,23 @@ import java.util.Optional;
 public class FolderCabinetTest {
 
     @Test
-  public   void testFolders(){
+    public void testFolders() {
         FolderCabinet folderCabinet = new FolderCabinet();
         Folder folder = new FolderCabinet("one", "SMALL");
         Folder folder1 = new FolderCabinet("two", "SMALL");
         Folder folder2 = new FolderCabinet("three", "MEDIUM");
         Folder folder3 = new FolderCabinet("three", "LARGE");
 
+
         folderCabinet.folderArrayList.add(folder);
         folderCabinet.folderArrayList.add(folder1);
         folderCabinet.folderArrayList.add(folder2);
         folderCabinet.folderArrayList.add(folder3);
 
-        Assertions.assertEquals( Optional.of(folder2),folderCabinet.findFolderByName("three"));
-        Assertions.assertEquals( List.of(folder,folder1),folderCabinet.findFoldersBySize("SMALL"));
-        Assertions.assertEquals(4,folderCabinet.count());
+
+        Assertions.assertEquals(Optional.of(folder2), folderCabinet.findFolderByName("three"));
+        Assertions.assertEquals(List.of(folder, folder1), folderCabinet.findFoldersBySize("SMALL"));
+        Assertions.assertEquals(4, folderCabinet.count());
 
 
     }

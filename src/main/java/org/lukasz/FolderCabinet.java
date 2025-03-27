@@ -24,17 +24,17 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
 
     @Override
     public Optional<Folder> findFolderByName(String name) {
-        return folderArrayList.stream().filter(folder -> folder.getName().equals(name)).findFirst();
+        return getFolders().stream().filter(folder -> folder.getName().equals(name)).findFirst();
     }
 
     @Override
     public List<Folder> findFoldersBySize(String size) {
-        return folderArrayList.stream().filter(folder -> folder.getSize().equals(size)).toList();
+        return getFolders().stream().filter(folder -> folder.getSize().equals(size)).toList();
     }
 
     @Override
     public int count() {
-        return folderArrayList.size();
+        return getFolders().size();
     }
 
     @Override
@@ -51,6 +51,8 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
     public String getSize() {
         return size;
     }
+
+
 
 
     @Override

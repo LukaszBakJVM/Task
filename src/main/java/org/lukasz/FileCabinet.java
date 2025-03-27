@@ -1,14 +1,15 @@
 package org.lukasz;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class FileCabinet implements Cabinet {
-    private List<Folder> folders;
+    private List<Folder> folders = new ArrayList<>();
 
     @Override
     public Optional<Folder> findFolderByName(String name) {
-        return Optional.empty();
+        return folders.stream().findFirst();
     }
 
     @Override
@@ -20,6 +21,11 @@ public class FileCabinet implements Cabinet {
     public int count() {
         return 0;
     }
+
+    public List<Folder> getFolders() {
+        return folders;
+    }
+
 }
 
 
