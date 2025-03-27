@@ -9,7 +9,7 @@ public class FileCabinet implements Cabinet {
 
     @Override
     public Optional<Folder> findFolderByName(String name) {
-        return folders.stream().findFirst();
+        return Optional.empty();
     }
 
     @Override
