@@ -16,11 +16,12 @@ public class FolderCabinetTest {
         Folder folder2 = new FolderCabinet("three", "MEDIUM");
         Folder folder3 = new FolderCabinet("three", "LARGE");
 
+        folderCabinet.addNewFolder(folder);
+        folderCabinet.addNewFolder(folder1);
+        folderCabinet.addNewFolder(folder2);
+        folderCabinet.addNewFolder(folder3);
 
-        folderCabinet.folderArrayList.add(folder);
-        folderCabinet.folderArrayList.add(folder1);
-        folderCabinet.folderArrayList.add(folder2);
-        folderCabinet.folderArrayList.add(folder3);
+
 
 
         Assertions.assertEquals(Optional.of(folder2), folderCabinet.findFolderByName("three"));

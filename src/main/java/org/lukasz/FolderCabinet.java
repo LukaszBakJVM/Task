@@ -8,7 +8,7 @@ import java.util.Optional;
 public class FolderCabinet extends FileCabinet implements MultiFolder {
 
 
-   public List<Folder> folderArrayList = new ArrayList<>();
+   private List<Folder> folderArrayList = new ArrayList<>();
     private String name;
     private String size;
 
@@ -19,6 +19,9 @@ public class FolderCabinet extends FileCabinet implements MultiFolder {
     public FolderCabinet(String name, String size) {
         this.name = name;
         this.size = size;
+    }
+    public void addNewFolder(Folder folder){
+        folderArrayList.add(folder);
     }
 
 
